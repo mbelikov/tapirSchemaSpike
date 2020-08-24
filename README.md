@@ -7,6 +7,9 @@ this project should demonstrate an usage of the tapir + http4s to derive automat
 possible issues corresponding to it.
 Having an API model like this:
 ```scala
+import eu.timepit.refined.types.numeric.NonNegInt
+import eu.timepit.refined.types.string.NonEmptyString
+
 sealed trait ParameterValue
 object ParameterValue {
   case class StringValue(value: String) extends ParameterValue
@@ -14,35 +17,19 @@ object ParameterValue {
   case class ListValue(value: List[ParameterValue]) extends ParameterValue
 }
 
+type ParameterMap = Map[NonEmptyString, ParameterValue]
+
 case class DeviceConfiguration(
     version: NonNegInt,
     createdAt: DateTimeString,
     parameters: ParameterMap
 )
 
-object DeviceConfiguration {
-  val test: DeviceConfiguration = DeviceConfiguration(
-    version = 1,
-    createdAt = DateTimeString.unsafeFrom(ZonedDateTime.now(ZoneOffset.UTC).toString),
-    parameters = Map[NonEmptyString, ParameterValue](
-      ("intParameter", IntValue(10)),
-      ("stringParameter", StringValue("sponge bob")),
-      ("listParameter", ListValue(IntValue(1) :: IntValue(2) :: IntValue(3) :: Nil))
-    )
-  )
-}
-
 case class DeviceConfigurationInfo(
     defaultConfiguration: DeviceConfiguration,
     lastConfiguration: DeviceConfiguration
 )
 
-object DeviceConfigurationInfo {
-  val test: DeviceConfigurationInfo = DeviceConfigurationInfo(
-    defaultConfiguration = DeviceConfiguration.test,
-    lastConfiguration = DeviceConfiguration.test
-  )
-}
 ```
 
 the tapir generates the following weird schema interpreting the 
