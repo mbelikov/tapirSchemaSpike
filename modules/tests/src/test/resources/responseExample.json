@@ -1,0 +1,76 @@
+{
+  "defaultConfiguration": {
+    "version": 1,
+    "createdAt": "2020-08-24T11:55:00.071499Z",
+    "parameters": {
+      "intParameter": {
+        "IntValue": {
+          "value": 10
+        }
+      },
+      "stringParameter": {
+        "StringValue": {
+          "value": "sponge bob"
+        }
+      },
+      "listParameter": {
+        "ListValue": {
+          "value": [
+            {
+              "IntValue": {
+                "value": 1
+              }
+            },
+            {
+              "IntValue": {
+                "value": 2
+              }
+            },
+            {
+              "IntValue": {
+                "value": 3
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "lastConfiguration": {
+    "version": 1,
+    "createdAt": "2020-08-24T11:55:00.071499Z",
+    "parameters": {
+      "intParameter": {
+        "IntValue": {
+          "value": 10
+        }
+      },
+      "stringParameter": {
+        "StringValue": {
+          "value": "sponge bob"
+        }
+      },
+      "listParameter": {
+        "ListValue": {
+          "value": [
+            {
+              "IntValue": {
+                "value": 1
+              }
+            },
+            {
+              "IntValue": {
+                "value": 2
+              }
+            },
+            {
+              "IntValue": {
+                "value": 3
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
